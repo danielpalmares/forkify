@@ -1,5 +1,5 @@
 import * as model from './model';
-import recipeView from './recipeView';
+import recipeView from './view/recipeView';
 
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
@@ -33,7 +33,7 @@ const controlRecipes = async function() {
   } catch (error) {
     alert(error);
   }
-}
+};
 
 const events = ['hashchange', 'load'];
 events.forEach(ev => window.addEventListener(ev, controlRecipes));
