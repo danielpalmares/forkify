@@ -1,26 +1,28 @@
 import { API_URL } from './config';
+import { getJSON } from './helpers';
 
 export const state = {
   recipe: {}
 }
 
 export const loadRecipe = async function(id) {
-  const res = await fetch(`${API_URL}/${id}`);
-  const data = await res.json();
-
-  if(!res.ok) throw new Error(data.message);
-  console.log(res, data);
-
-  let {recipe} = data.data;
-  state.recipe = {
-    id: recipe.id,
-    title: recipe.title,
-    publisher: recipe.publisher,
-    sourceUrl: recipe.source_url,
-    image: recipe.image_url,
-    servings: recipe.servings,
-    cookingTime: recipe.cooking_time,
-    ingredients: recipe.ingredients
+  try {
+    const data = await getJSON(`${API_URL}/${id}`);
+  
+    const { recipe } = data.data;
+    state.recipe = {
+      id: recipe.id,
+      title: recipe.title,
+      publisher: recipe.publisher,
+      sourceUrl: recipe.source_url,
+      image: recipe.image_url,
+      servings: recipe.servings,
+      cookingTime: recipe.cooking_time,
+      ingredients: recipe.ingredients
+    }
+    console.log(recipe);
+  } catch(err) {
+    // Temp error handling
+    console.error(`${err} 💥💥💥`);
   }
-  console.log(recipe);
 }

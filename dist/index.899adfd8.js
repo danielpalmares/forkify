@@ -495,17 +495,8 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-const recipeContainer = document.querySelector('.recipe');
-
-const timeout = function (s) {
-  return new Promise(function (_, reject) {
-    setTimeout(function () {
-      reject(new Error(`Request took too long! Timeout after ${s} second`));
-    }, s * 1000);
-  });
-}; // https://forkify-api.herokuapp.com/v2
+const recipeContainer = document.querySelector('.recipe'); // https://forkify-api.herokuapp.com/v2
 ///////////////////////////////////////
-
 
 const controlRecipes = async function () {
   try {
@@ -5049,43 +5040,79 @@ exports.loadRecipe = exports.state = void 0;
 
 var _config = require("./config");
 
+var _helpers = require("./helpers");
+
 const state = {
   recipe: {}
 };
 exports.state = state;
 
 const loadRecipe = async function (id) {
-  const res = await fetch(`${_config.API_URL}/${id}`);
-  const data = await res.json();
-  if (!res.ok) throw new Error(data.message);
-  console.log(res, data);
-  let {
-    recipe
-  } = data.data;
-  state.recipe = {
-    id: recipe.id,
-    title: recipe.title,
-    publisher: recipe.publisher,
-    sourceUrl: recipe.source_url,
-    image: recipe.image_url,
-    servings: recipe.servings,
-    cookingTime: recipe.cooking_time,
-    ingredients: recipe.ingredients
-  };
-  console.log(recipe);
+  try {
+    const data = await (0, _helpers.getJSON)(`${_config.API_URL}/${id}`);
+    const {
+      recipe
+    } = data.data;
+    state.recipe = {
+      id: recipe.id,
+      title: recipe.title,
+      publisher: recipe.publisher,
+      sourceUrl: recipe.source_url,
+      image: recipe.image_url,
+      servings: recipe.servings,
+      cookingTime: recipe.cooking_time,
+      ingredients: recipe.ingredients
+    };
+    console.log(recipe);
+  } catch (err) {
+    // Temp error handling
+    console.error(`${err} 💥💥💥`);
+  }
 };
 
 exports.loadRecipe = loadRecipe;
-},{"./config":"he5L7"}],"he5L7":[function(require,module,exports) {
+},{"./config":"he5L7","./helpers":"rsHc2"}],"he5L7":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.API_URL = void 0;
+exports.TIMEOUT_SEC = exports.API_URL = void 0;
 const API_URL = 'https://forkify-api.herokuapp.com/api/v2/recipes';
 exports.API_URL = API_URL;
-},{}],"2TLAU":[function(require,module,exports) {
+const TIMEOUT_SEC = 10;
+exports.TIMEOUT_SEC = TIMEOUT_SEC;
+},{}],"rsHc2":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getJSON = void 0;
+
+var _config = require("./config");
+
+const timeout = function (s) {
+  return new Promise(function (_, reject) {
+    setTimeout(function () {
+      reject(new Error(`Request took too long! Timeout after ${s} second`));
+    }, s * 1000);
+  });
+};
+
+const getJSON = async function (url) {
+  try {
+    const res = await Promise.race([fetch(url), timeout(_config.TIMEOUT_SEC)]);
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.message);
+    return data; // resolved value returned
+  } catch (err) {
+    throw err; // rejected value returned
+  }
+};
+
+exports.getJSON = getJSON;
+},{"./config":"he5L7"}],"2TLAU":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
