@@ -3,9 +3,9 @@ import { getJSON } from './helpers';
 
 export const state = {
   recipe: {}
-}
+};
 
-export const loadRecipe = async function(id) {
+export const loadRecipe = async function (id) {
   try {
     const data = await getJSON(`${API_URL}/${id}`);
   
@@ -20,9 +20,7 @@ export const loadRecipe = async function(id) {
       cookingTime: recipe.cooking_time,
       ingredients: recipe.ingredients
     }
-    console.log(recipe);
-  } catch(err) {
-    // Temp error handling
-    console.error(`${err} 💥💥💥`);
+  } catch (err) {
+    throw err;
   }
-}
+};
