@@ -515,9 +515,11 @@ const controlRecipes = async function () {
   }
 };
 
-const events = ['hashchange', 'load'];
-events.forEach(ev => window.addEventListener(ev, controlRecipes)); // window.addEventListener('load', controlRecipes);
-// window.addEventListener('hashchange', controlRecipes);
+const init = function () {
+  _recipeView.default.addHandlerRender(controlRecipes);
+};
+
+init();
 },{"core-js/modules/es.typed-array.float32-array":"6vFQh","core-js/modules/es.typed-array.float64-array":"2eOQr","core-js/modules/es.typed-array.int8-array":"XYZw7","core-js/modules/es.typed-array.int16-array":"3h7FL","core-js/modules/es.typed-array.int32-array":"2wvgL","core-js/modules/es.typed-array.uint8-array":"2VDQl","core-js/modules/es.typed-array.uint8-clamped-array":"2bFdN","core-js/modules/es.typed-array.uint16-array":"10bKA","core-js/modules/es.typed-array.uint32-array":"3XrCq","core-js/modules/es.typed-array.from":"JJTD6","core-js/modules/es.typed-array.of":"1qtO8","core-js/modules/web.immediate":"BQdWp","core-js/modules/web.url":"5429i","core-js/modules/web.url.to-json":"31slQ","core-js/modules/web.url-search-params":"171FE","./model":"5cc2Y","./view/recipeView":"2TLAU"}],"6vFQh":[function(require,module,exports) {
 var createTypedArrayConstructor = require('../internals/typed-array-constructor');
 
@@ -5184,6 +5186,10 @@ class recipeView {
     _classPrivateMethodGet(this, _clear, _clear2).call(this);
 
     _classPrivateFieldGet(this, _parentElement).insertAdjacentHTML('afterbegin', markup);
+  }
+
+  addHandlerRender(handler) {
+    ['hashchange', 'load'].forEach(ev => window.addEventListener(ev, handler));
   }
 
 }
