@@ -5251,7 +5251,7 @@ class recipeView extends _view.default {
       const {
         updateTo
       } = btn.dataset;
-      if (+updateTo > 0) handler(+updateTo);
+      handler(updateTo);
     });
   }
 

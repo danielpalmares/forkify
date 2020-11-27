@@ -551,9 +551,9 @@ const controlPagination = function (goToPage) {
   _paginationView.default.render(model.state.search);
 };
 
-const controlServings = function (newServings) {
+const controlServings = function () {
   // Update the recipe servings (in state)
-  model.updateServings(newServings); // Update the recipe view
+  model.updateServings(8); // Update the recipe view
 
   _recipeView.default.render(model.state.recipe);
 };
@@ -561,11 +561,11 @@ const controlServings = function (newServings) {
 const init = function () {
   _recipeView.default.addHandlerRender(controlRecipes);
 
-  _recipeView.default.addHandlerUpdateServings(controlServings);
-
   _searchView.default.addHandlerSearch(controlSearchResults);
 
   _paginationView.default.addHandlerClick(controlPagination);
+
+  _recipeView.default.addHandlerUpdateServings(controlServings);
 };
 
 init();
@@ -5245,13 +5245,9 @@ class recipeView extends _view.default {
 
   addHandlerUpdateServings(handler) {
     this._parentElement.addEventListener('click', function (e) {
-      const btn = e.target.closest('.btn--update-servings');
+      const btn = e.target.closest('.btn--tiny');
       if (!btn) return;
       console.log(btn);
-      const {
-        updateTo
-      } = btn.dataset;
-      if (+updateTo > 0) handler(+updateTo);
     });
   }
 
@@ -5280,12 +5276,12 @@ class recipeView extends _view.default {
           <span class="recipe__info-text">servings</span>
 
           <div class="recipe__info-buttons">
-            <button class="btn--tiny btn--update-servings" data-update-to="${this._data.servings - 1}">
+            <button class="btn--tiny btn--increase-servings">
               <svg>
                 <use href="${_icons.default}#icon-minus-circle"></use>
               </svg>
             </button>
-            <button class="btn--tiny btn--update-servings" data-update-to="${this._data.servings + 1}">
+            <button class="btn--tiny btn--increase-servings">
               <svg>
                 <use href="${_icons.default}#icon-plus-circle"></use>
               </svg>

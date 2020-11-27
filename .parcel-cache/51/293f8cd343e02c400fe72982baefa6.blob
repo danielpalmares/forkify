@@ -5250,8 +5250,8 @@ class recipeView extends _view.default {
       console.log(btn);
       const {
         updateTo
-      } = btn.dataset;
-      if (+updateTo > 0) handler(+updateTo);
+      } = +btn.dataset;
+      handler(updateTo);
     });
   }
 
