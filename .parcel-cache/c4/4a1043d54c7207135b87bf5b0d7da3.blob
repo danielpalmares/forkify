@@ -495,8 +495,6 @@ var _resultsView = _interopRequireDefault(require("./view/resultsView.js"));
 
 var _paginationView = _interopRequireDefault(require("./view/paginationView.js"));
 
-var _bookmarksView = _interopRequireDefault(require("./view/bookmarksView.js"));
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
@@ -514,9 +512,7 @@ const controlRecipes = async function () {
     _recipeView.default.renderSpinner(); // 0 *-- Update results view to mark selected search result --*
 
 
-    _resultsView.default.update(model.getSearchResultsPage());
-
-    _bookmarksView.default.update(model.state.bookmarks); // 1 *-- Loading the recipe --*
+    _resultsView.default.update(model.getSearchResultsPage()); // 1 *-- Loading the recipe --*
 
 
     await model.loadRecipe(id); // 2 *-- Rendering the recipe --*
@@ -566,13 +562,9 @@ const controlServings = function (newServings) {
 };
 
 const controlAddBookmark = function () {
-  // 1) Add/remove bookmark
-  if (!model.state.recipe.bookmarked) model.addBookmark(model.state.recipe);else model.deleteBookmark(model.state.recipe.id); // 2) Update recipe view
+  if (!model.state.recipe.bookmarked) model.addBookmark(model.state.recipe);else model.deleteBookmark(model.state.recipe.id);
 
-  _recipeView.default.update(model.state.recipe); // 3) Render bookmarks
-
-
-  _bookmarksView.default.render(model.state.bookmarks);
+  _recipeView.default.update(model.state.recipe);
 };
 
 const init = function () {
@@ -588,7 +580,7 @@ const init = function () {
 };
 
 init();
-},{"core-js/modules/es.typed-array.float32-array":"6vFQh","core-js/modules/es.typed-array.float64-array":"2eOQr","core-js/modules/es.typed-array.int8-array":"XYZw7","core-js/modules/es.typed-array.int16-array":"3h7FL","core-js/modules/es.typed-array.int32-array":"2wvgL","core-js/modules/es.typed-array.uint8-array":"2VDQl","core-js/modules/es.typed-array.uint8-clamped-array":"2bFdN","core-js/modules/es.typed-array.uint16-array":"10bKA","core-js/modules/es.typed-array.uint32-array":"3XrCq","core-js/modules/es.typed-array.from":"JJTD6","core-js/modules/es.typed-array.of":"1qtO8","core-js/modules/web.immediate":"BQdWp","core-js/modules/web.url":"5429i","core-js/modules/web.url.to-json":"31slQ","core-js/modules/web.url-search-params":"171FE","./model.js":"5cc2Y","./view/recipeView.js":"2TLAU","./view/searchView.js":"6j8GL","./view/resultsView.js":"01Lnx","./view/paginationView.js":"4q5aT","./view/bookmarksView.js":"3qypD"}],"6vFQh":[function(require,module,exports) {
+},{"core-js/modules/es.typed-array.float32-array":"6vFQh","core-js/modules/es.typed-array.float64-array":"2eOQr","core-js/modules/es.typed-array.int8-array":"XYZw7","core-js/modules/es.typed-array.int16-array":"3h7FL","core-js/modules/es.typed-array.int32-array":"2wvgL","core-js/modules/es.typed-array.uint8-array":"2VDQl","core-js/modules/es.typed-array.uint8-clamped-array":"2bFdN","core-js/modules/es.typed-array.uint16-array":"10bKA","core-js/modules/es.typed-array.uint32-array":"3XrCq","core-js/modules/es.typed-array.from":"JJTD6","core-js/modules/es.typed-array.of":"1qtO8","core-js/modules/web.immediate":"BQdWp","core-js/modules/web.url":"5429i","core-js/modules/web.url.to-json":"31slQ","core-js/modules/web.url-search-params":"171FE","./model.js":"5cc2Y","./view/recipeView.js":"2TLAU","./view/searchView.js":"6j8GL","./view/resultsView.js":"01Lnx","./view/paginationView.js":"4q5aT"}],"6vFQh":[function(require,module,exports) {
 var createTypedArrayConstructor = require('../internals/typed-array-constructor');
 
 // `Float32Array` constructor
@@ -5422,13 +5414,11 @@ class View {
     _defineProperty(this, "_data", void 0);
   }
 
-  render(data, render = true) {
+  render(data) {
     if (!data || Array.isArray(data) && data.length === 0) return this.renderError();
     this._data = data;
 
     const markup = this._generateMarkup();
-
-    if (!render) return markup;
 
     this._clear();
 
@@ -6054,8 +6044,6 @@ exports.default = void 0;
 
 var _view = _interopRequireDefault(require("./view.js"));
 
-var _previewView = _interopRequireDefault(require("./previewView.js"));
-
 var _icons = _interopRequireDefault(require("url:../../img/icons.svg"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -6076,49 +6064,20 @@ class ResultsView extends _view.default {
 
   _generateMarkup() {
     console.log(this._data);
-    return this._data.map(result => _previewView.default.render(result, false)).join('');
+    return this._data.map(this._generateMarkupPreview).join('');
   }
 
-}
-
-var _default = new ResultsView();
-
-exports.default = _default;
-},{"./view.js":"2vcvx","url:../../img/icons.svg":"7wuzf","./previewView.js":"6ctjR"}],"6ctjR":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _view = _interopRequireDefault(require("./view.js"));
-
-var _icons = _interopRequireDefault(require("url:../../img/icons.svg"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-//---parcel v2
-class PreviewView extends _view.default {
-  constructor(...args) {
-    super(...args);
-
-    _defineProperty(this, "_parentElement", '');
-  }
-
-  _generateMarkup(result) {
+  _generateMarkupPreview(result) {
     const id = window.location.hash.slice(1);
     return `
       <li class="preview">
-        <a class="preview__link ${this._data.id === id ? 'preview__link--active' : ''}"  href="#${this._data.id}">
+        <a class="preview__link ${result.id === id ? 'preview__link--active' : ''}"  href="#${result.id}">
         <figure class="preview__fig">
-          <img src="${this._data.image}" alt="${this._data.title}" />
+          <img src="${result.image}" alt="${result.title}" />
         </figure>
         <div class="preview__data">
-          <h4 class="preview__title">${this._data.title}</h4>
-          <p class="preview__publisher">${this._data.publisher}</p>
+          <h4 class="preview__title">${result.title}</h4>
+          <p class="preview__publisher">${result.publisher}</p>
         </div>
         </a>
       </li>
@@ -6127,7 +6086,7 @@ class PreviewView extends _view.default {
 
 }
 
-var _default = new PreviewView();
+var _default = new ResultsView();
 
 exports.default = _default;
 },{"./view.js":"2vcvx","url:../../img/icons.svg":"7wuzf"}],"4q5aT":[function(require,module,exports) {
@@ -6217,46 +6176,6 @@ class PaginationView extends _view.default {
 var _default = new PaginationView();
 
 exports.default = _default;
-},{"./view.js":"2vcvx","url:../../img/icons.svg":"7wuzf"}],"3qypD":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _view = _interopRequireDefault(require("./view.js"));
-
-var _previewView = _interopRequireDefault(require("./previewView.js"));
-
-var _icons = _interopRequireDefault(require("url:../../img/icons.svg"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-//---parcel v2
-class BookmarksView extends _view.default {
-  constructor(...args) {
-    super(...args);
-
-    _defineProperty(this, "_parentElement", document.querySelector('.bookmarks__list'));
-
-    _defineProperty(this, "_errorMessage", 'No bookmarks yet. Find a nice recipe and bookmark it ;)');
-
-    _defineProperty(this, "_message", '');
-  }
-
-  _generateMarkup() {
-    console.log(this._data);
-    return this._data.map(bookmark => _previewView.default.render(bookmark, false)).join('');
-  }
-
-}
-
-var _default = new BookmarksView();
-
-exports.default = _default;
-},{"./view.js":"2vcvx","url:../../img/icons.svg":"7wuzf","./previewView.js":"6ctjR"}]},{},["6GPhY","4iKEs","I5Uh7"], "I5Uh7", "parcelRequirefade")
+},{"./view.js":"2vcvx","url:../../img/icons.svg":"7wuzf"}]},{},["6GPhY","4iKEs","I5Uh7"], "I5Uh7", "parcelRequirefade")
 
 //# sourceMappingURL=index.899adfd8.js.map

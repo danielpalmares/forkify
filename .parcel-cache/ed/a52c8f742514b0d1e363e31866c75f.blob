@@ -514,9 +514,7 @@ const controlRecipes = async function () {
     _recipeView.default.renderSpinner(); // 0 *-- Update results view to mark selected search result --*
 
 
-    _resultsView.default.update(model.getSearchResultsPage());
-
-    _bookmarksView.default.update(model.state.bookmarks); // 1 *-- Loading the recipe --*
+    _resultsView.default.update(model.getSearchResultsPage()); // 1 *-- Loading the recipe --*
 
 
     await model.loadRecipe(id); // 2 *-- Rendering the recipe --*
@@ -566,13 +564,9 @@ const controlServings = function (newServings) {
 };
 
 const controlAddBookmark = function () {
-  // 1) Add/remove bookmark
-  if (!model.state.recipe.bookmarked) model.addBookmark(model.state.recipe);else model.deleteBookmark(model.state.recipe.id); // 2) Update recipe view
+  if (!model.state.recipe.bookmarked) model.addBookmark(model.state.recipe);else model.deleteBookmark(model.state.recipe.id);
 
-  _recipeView.default.update(model.state.recipe); // 3) Render bookmarks
-
-
-  _bookmarksView.default.render(model.state.bookmarks);
+  _recipeView.default.update(model.state.recipe);
 };
 
 const init = function () {
@@ -5422,13 +5416,11 @@ class View {
     _defineProperty(this, "_data", void 0);
   }
 
-  render(data, render = true) {
+  render(data) {
     if (!data || Array.isArray(data) && data.length === 0) return this.renderError();
     this._data = data;
 
     const markup = this._generateMarkup();
-
-    if (!render) return markup;
 
     this._clear();
 
@@ -6054,8 +6046,6 @@ exports.default = void 0;
 
 var _view = _interopRequireDefault(require("./view.js"));
 
-var _previewView = _interopRequireDefault(require("./previewView.js"));
-
 var _icons = _interopRequireDefault(require("url:../../img/icons.svg"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -6076,49 +6066,20 @@ class ResultsView extends _view.default {
 
   _generateMarkup() {
     console.log(this._data);
-    return this._data.map(result => _previewView.default.render(result, false)).join('');
+    return this._data.map(this._generateMarkupPreview).join('');
   }
 
-}
-
-var _default = new ResultsView();
-
-exports.default = _default;
-},{"./view.js":"2vcvx","url:../../img/icons.svg":"7wuzf","./previewView.js":"6ctjR"}],"6ctjR":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _view = _interopRequireDefault(require("./view.js"));
-
-var _icons = _interopRequireDefault(require("url:../../img/icons.svg"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-//---parcel v2
-class PreviewView extends _view.default {
-  constructor(...args) {
-    super(...args);
-
-    _defineProperty(this, "_parentElement", '');
-  }
-
-  _generateMarkup(result) {
+  _generateMarkupPreview(result) {
     const id = window.location.hash.slice(1);
     return `
       <li class="preview">
-        <a class="preview__link ${this._data.id === id ? 'preview__link--active' : ''}"  href="#${this._data.id}">
+        <a class="preview__link ${result.id === id ? 'preview__link--active' : ''}"  href="#${result.id}">
         <figure class="preview__fig">
-          <img src="${this._data.image}" alt="${this._data.title}" />
+          <img src="${result.image}" alt="${result.title}" />
         </figure>
         <div class="preview__data">
-          <h4 class="preview__title">${this._data.title}</h4>
-          <p class="preview__publisher">${this._data.publisher}</p>
+          <h4 class="preview__title">${result.title}</h4>
+          <p class="preview__publisher">${result.publisher}</p>
         </div>
         </a>
       </li>
@@ -6127,7 +6088,7 @@ class PreviewView extends _view.default {
 
 }
 
-var _default = new PreviewView();
+var _default = new ResultsView();
 
 exports.default = _default;
 },{"./view.js":"2vcvx","url:../../img/icons.svg":"7wuzf"}],"4q5aT":[function(require,module,exports) {
@@ -6227,8 +6188,6 @@ exports.default = void 0;
 
 var _view = _interopRequireDefault(require("./view.js"));
 
-var _previewView = _interopRequireDefault(require("./previewView.js"));
-
 var _icons = _interopRequireDefault(require("url:../../img/icons.svg"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -6236,7 +6195,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 //---parcel v2
-class BookmarksView extends _view.default {
+class bookmarksView extends _view.default {
   constructor(...args) {
     super(...args);
 
@@ -6249,14 +6208,31 @@ class BookmarksView extends _view.default {
 
   _generateMarkup() {
     console.log(this._data);
-    return this._data.map(bookmark => _previewView.default.render(bookmark, false)).join('');
+    return this._data.map(this._generateMarkupPreview).join('');
+  }
+
+  _generateMarkupPreview(result) {
+    const id = window.location.hash.slice(1);
+    return `
+      <li class="preview">
+        <a class="preview__link ${result.id === id ? 'preview__link--active' : ''}"  href="#${result.id}">
+        <figure class="preview__fig">
+          <img src="${result.image}" alt="${result.title}" />
+        </figure>
+        <div class="preview__data">
+          <h4 class="preview__title">${result.title}</h4>
+          <p class="preview__publisher">${result.publisher}</p>
+        </div>
+        </a>
+      </li>
+    `;
   }
 
 }
 
-var _default = new BookmarksView();
+var _default = new bookmarksView();
 
 exports.default = _default;
-},{"./view.js":"2vcvx","url:../../img/icons.svg":"7wuzf","./previewView.js":"6ctjR"}]},{},["6GPhY","4iKEs","I5Uh7"], "I5Uh7", "parcelRequirefade")
+},{"./view.js":"2vcvx","url:../../img/icons.svg":"7wuzf"}]},{},["6GPhY","4iKEs","I5Uh7"], "I5Uh7", "parcelRequirefade")
 
 //# sourceMappingURL=index.899adfd8.js.map
