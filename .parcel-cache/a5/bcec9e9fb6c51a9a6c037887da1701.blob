@@ -581,10 +581,6 @@ const controlBookmarks = function () {
   _bookmarksView.default.render(model.state.bookmarks);
 };
 
-const controlAddRecipe = function (newRecipe) {
-  console.log(newRecipe); // Upload the new recipe data
-};
-
 const init = function () {
   _bookmarksView.default.addHandlerRender(controlBookmarks);
 
@@ -597,8 +593,6 @@ const init = function () {
   _searchView.default.addHandlerSearch(controlSearchResults);
 
   _paginationView.default.addHandlerClick(controlPagination);
-
-  _addRecipeView.default.addHandlerUpload(controlAddRecipe);
 };
 
 init();
@@ -6321,8 +6315,6 @@ class AddRecipeView extends _view.default {
     _defineProperty(this, "_btnClose", document.querySelector('.btn--close-modal'));
 
     this._addHandlerShowWindow();
-
-    this._addHandlerHideWindow();
   }
 
   toggleWindow() {
@@ -6333,21 +6325,6 @@ class AddRecipeView extends _view.default {
 
   _addHandlerShowWindow() {
     this._btnOpen.addEventListener('click', this.toggleWindow.bind(this));
-  }
-
-  _addHandlerHideWindow() {
-    this._btnClose.addEventListener('click', this.toggleWindow.bind(this));
-
-    this._overlay.addEventListener('click', this.toggleWindow.bind(this));
-  }
-
-  addHandlerUpload(handler) {
-    this._parentElement.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const dataArr = [...new FormData(this)];
-      const data = Object.fromEntries(dataArr);
-      handler(data);
-    });
   }
 
   _generateMarkup() {}
