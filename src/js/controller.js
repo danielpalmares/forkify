@@ -28,7 +28,6 @@ const controlRecipes = async function () {
 
     // 2 *-- Rendering the recipe --*
     recipeView.render(model.state.recipe); // esse método render irá aceitar estes dados(recipe) e armazenar dentro do objeto
-
   } catch (error) {
     recipeView.renderError();
   }
@@ -51,22 +50,21 @@ const controlSearchResults = async function () {
 
     // 4) Render initial pagination buttons
     paginationView.render(model.state.search);
-
   } catch (err) {
     console.log(err);
   }
 };
 
-const controlPagination = function(goToPage) {
+const controlPagination = function (goToPage) {
   // 1) Render NEW results
   // resultsView.render(model.state.search.results);
   resultsView.render(model.getSearchResultsPage(goToPage));
 
   // 2) Render NEW pagination buttons
   paginationView.render(model.state.search);
-}
+};
 
-const controlServings = function(newServings) {
+const controlServings = function (newServings) {
   // Update the recipe servings (in state)
   model.updateServings(newServings);
 
@@ -74,24 +72,23 @@ const controlServings = function(newServings) {
   recipeView.update(model.state.recipe);
 };
 
-const controlAddBookmark = function() {
+const controlAddBookmark = function () {
   // 1) Add/remove bookmark
   if (!model.state.recipe.bookmarked) model.addBookmark(model.state.recipe);
   else model.deleteBookmark(model.state.recipe.id);
-  
+
   // 2) Update recipe view
   recipeView.update(model.state.recipe);
 
   // 3) Render bookmarks
-  bookmarksView.render(model.state.bookmarks)
-
-}
+  bookmarksView.render(model.state.bookmarks);
+};
 
 const init = function () {
   recipeView.addHandlerRender(controlRecipes);
   recipeView.addHandlerUpdateServings(controlServings);
   recipeView.addHandlerAddBookmark(controlAddBookmark);
   searchView.addHandlerSearch(controlSearchResults);
-  paginationView.addHandlerClick(controlPagination);  
+  paginationView.addHandlerClick(controlPagination);
 };
 init();

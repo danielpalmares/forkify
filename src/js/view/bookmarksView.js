@@ -1,5 +1,5 @@
 import View from './view.js';
-import previewView from './previewView.js'
+import previewView from './previewView.js';
 import icons from 'url:../../img/icons.svg'; //---parcel v2
 
 class BookmarksView extends View {
@@ -9,7 +9,9 @@ class BookmarksView extends View {
 
   _generateMarkup() {
     console.log(this._data);
-    return this._data.map(bookmark => previewView.render(bookmark, false)).join('');
+    return this._data
+      .map(bookmark => previewView.render(bookmark, false))
+      .join('');
   }
 }
 

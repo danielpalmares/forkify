@@ -9,7 +9,9 @@ class PreviewView extends View {
 
     return `
       <li class="preview">
-        <a class="preview__link ${this._data.id === id ? 'preview__link--active' : ''}"  href="#${this._data.id}">
+        <a class="preview__link ${
+          this._data.id === id ? 'preview__link--active' : ''
+        }"  href="#${this._data.id}">
         <figure class="preview__fig">
           <img src="${this._data.image}" alt="${this._data.title}" />
         </figure>
@@ -19,7 +21,7 @@ class PreviewView extends View {
         </div>
         </a>
       </li>
-    `
+    `;
   }
 }
 

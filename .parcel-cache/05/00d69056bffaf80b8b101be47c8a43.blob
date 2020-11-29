@@ -1,4 +1,11 @@
-import { TIMEOUT_SEC } from './config';
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getJSON = void 0;
+
+var _config = require("./config");
 
 const timeout = function (s) {
   return new Promise(function (_, reject) {
@@ -8,14 +15,15 @@ const timeout = function (s) {
   });
 };
 
-export const getJSON = async function (url) {
+const getJSON = async function (url) {
   try {
-    const res = await Promise.race([fetch(url), timeout(TIMEOUT_SEC)]);
+    const res = await Promise.race([fetch(url), timeout(_config.TIMEOUT_SEC)]);
     const data = await res.json();
-
     if (!res.ok) throw new Error(data.message);
     return data; //---resolved value returned
   } catch (err) {
     throw err; //---rejected value returned
   }
 };
+
+exports.getJSON = getJSON;
