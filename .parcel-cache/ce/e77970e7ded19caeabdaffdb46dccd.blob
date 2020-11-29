@@ -511,18 +511,18 @@ const controlRecipes = async function () {
     const id = window.location.hash.slice([1]);
     if (!id) return;
 
-    _recipeView.default.renderSpinner(); // 0) Update results view to mark selected search result
+    _recipeView.default.renderSpinner(); // 0 *-- Update results view to mark selected search result --*
 
 
-    _resultsView.default.update(model.getSearchResultsPage()); // 1) Updating bookmarks view
+    _resultsView.default.update(model.getSearchResultsPage());
+
+    _bookmarksView.default.update(model.state.bookmarks); // 1 *-- Loading the recipe --*
 
 
-    _bookmarksView.default.update(model.state.bookmarks); // 2) Loading the recipe
+    await model.loadRecipe(id); // 2 *-- Rendering the recipe --*
 
+    _recipeView.default.render(model.state.recipe); // esse método render irá aceitar estes dados(recipe) e armazenar dentro do objeto
 
-    await model.loadRecipe(id); // 3) Rendering the recipe
-
-    _recipeView.default.render(model.state.recipe);
   } catch (error) {
     _recipeView.default.renderError();
   }
@@ -575,13 +575,7 @@ const controlAddBookmark = function () {
   _bookmarksView.default.render(model.state.bookmarks);
 };
 
-const controlBookmarks = function () {
-  _bookmarksView.default.render(model.state.bookmarks);
-};
-
 const init = function () {
-  _bookmarksView.default.addHandlerRender(controlBookmarks);
-
   _recipeView.default.addHandlerRender(controlRecipes);
 
   _recipeView.default.addHandlerUpdateServings(controlServings);
@@ -594,10 +588,6 @@ const init = function () {
 };
 
 init();
-
-const clearBookmarks = function () {
-  localStorage.clear('bookmarks');
-}; // clearBookmarks();
 },{"core-js/modules/es.typed-array.float32-array":"6vFQh","core-js/modules/es.typed-array.float64-array":"2eOQr","core-js/modules/es.typed-array.int8-array":"XYZw7","core-js/modules/es.typed-array.int16-array":"3h7FL","core-js/modules/es.typed-array.int32-array":"2wvgL","core-js/modules/es.typed-array.uint8-array":"2VDQl","core-js/modules/es.typed-array.uint8-clamped-array":"2bFdN","core-js/modules/es.typed-array.uint16-array":"10bKA","core-js/modules/es.typed-array.uint32-array":"3XrCq","core-js/modules/es.typed-array.from":"JJTD6","core-js/modules/es.typed-array.of":"1qtO8","core-js/modules/web.immediate":"BQdWp","core-js/modules/web.url":"5429i","core-js/modules/web.url.to-json":"31slQ","core-js/modules/web.url-search-params":"171FE","./model.js":"5cc2Y","./view/recipeView.js":"2TLAU","./view/searchView.js":"6j8GL","./view/resultsView.js":"01Lnx","./view/paginationView.js":"4q5aT","./view/bookmarksView.js":"3qypD"}],"6vFQh":[function(require,module,exports) {
 var createTypedArrayConstructor = require('../internals/typed-array-constructor');
 
@@ -5224,14 +5214,6 @@ const deleteBookmark = function (id) {
 };
 
 exports.deleteBookmark = deleteBookmark;
-
-const init = function () {
-  const storage = localStorage.getItem('bookmarks');
-  if (storage) state.bookmarks = JSON.parse(storage);
-};
-
-init();
-console.log(state.bookmarks);
 },{"./config":"he5L7","./helpers":"rsHc2"}],"he5L7":[function(require,module,exports) {
 "use strict";
 
@@ -6268,11 +6250,8 @@ class BookmarksView extends _view.default {
     _defineProperty(this, "_message", '');
   }
 
-  addHandlerRender(handler) {
-    window.addEventListener('load', handler);
-  }
-
   _generateMarkup() {
+    console.log(this._data);
     return this._data.map(bookmark => _previewView.default.render(bookmark, false)).join('');
   }
 
