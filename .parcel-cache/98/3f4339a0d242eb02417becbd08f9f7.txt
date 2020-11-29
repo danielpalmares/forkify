@@ -26,7 +26,7 @@
 140C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\unicode-match-property-value-ecmascript\index.js121436361000000000 0
 100C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\mdn-data132492718952685606 1
 145C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\@babel\plugin-transform-react-jsx-source\lib\index.js121012626000000000 0
-83C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\dist132509763649095561 1
+83C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\dist132510841199089702 1
 143C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\css-declaration-sorter\node_modules\postcss\LICENSE121436361000000000 0
 113C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\xmlchars\package.json132492718846309285 0
 122C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\rxjs\operators\takeLast.js.map121436361000000000 0
@@ -40,7 +40,7 @@
 98C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\semver132492718904393666 1
 111C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\unset-value\LICENSE130851080450000000 0
 147C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\object-is\node_modules\es-abstract\2019\YearFromTime.js121436361000000000 0
-104C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\src\js\view\recipeView.js132508238899616807 0
+104C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\src\js\view\recipeView.js132510819170339417 0
 127C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\highlight.js\lib\languages\smali.js131406724530000000 0
 103C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\dedent\dist132492718510332027 1
 90C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\.prettierrc132475804580000000 0
@@ -357,7 +357,7 @@
 103C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\ansi-colors132492718994046033 1
 122C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\rxjs\operators\catchError.d.ts121436361000000000 0
 109C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\crypto-browserify132492718859759710 1
-99C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\src\js\controller.js132509760343212246 0
+99C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\src\js\controller.js132510840686637845 0
 112C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\is-arguments\test.js121436361000000000 0
 133C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\core-js\modules\esnext.iterator.filter.js121436361000000000 0
 163C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\string.prototype.trimend\node_modules\es-abstract\2019\thisTimeValue.js121436361000000000 0
@@ -365,7 +365,7 @@
 104C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\run-parallel132492718911020015 1
 148C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\object-is\node_modules\es-abstract\2017\ToPropertyKey.js121436361000000000 0
 122C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\rxjs\src\operator\skipUntil.ts121436361000000000 0
-94C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\src\js\model.js132508203152782337 0
+94C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\src\js\model.js132510837391671063 0
 139C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\stylehacks\node_modules\postcss\lib\tokenize.js121436361000000000 0
 157C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\object-is\node_modules\es-abstract\2018\CreateIterResultObject.js121436361000000000 0
 146C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\postcss-modules-scope\node_modules\postcss\lib\rule.js121436361000000000 0
@@ -430,7 +430,7 @@
 105C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\src\js\view\resultsView.js132509761542004944 0
 159C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\string.prototype.trimend\node_modules\es-abstract\5\DateFromTime.js121436361000000000 0
 161C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\string.prototype.trimend\node_modules\es-abstract\2016\HasProperty.js121436361000000000 0
-98C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\src\js\view\view.js132509763138985150 0
+98C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\src\js\view\view.js132510820781265558 0
 150C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\@parcel\package-manager\test\fixtures\has-foo\node_modules132492729686892378 1
 158C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\object-is\node_modules\es-abstract\2020\CreateListFromArrayLike.js121436361000000000 0
 164C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\string.prototype.trimstart\node_modules\es-abstract\2015\IteratorNext.js121436361000000000 0
@@ -4997,7 +4997,7 @@
 149C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\core-js\modules\es.reflect.get-own-property-descriptor.js121436361000000000 0
 118C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\semver-compare\test\cmp.js130598989100000000 0
 108C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\tough-cookie\lib132492718291783535 1
-102C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\dist\index.776d71e5.css132509763649044964 0
+102C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\dist\index.776d71e5.css132510841198511308 0
 123C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\rxjs\operators\takeWhile.js.map121436361000000000 0
 179C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\string.prototype.trimend\node_modules\es-abstract\2016\OrdinaryCreateFromConstructor.js121436361000000000 0
 143C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\core-js-compat\node_modules\semver\functions\gte.js121436361000000000 0
@@ -11993,7 +11993,7 @@
 118C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\rxjs\operator\groupBy.d.ts121436361000000000 0
 116C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\rxjs\operator\groupBy.js121436361000000000 0
 142C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\object-is\node_modules\es-abstract\helpers\sign.js121436361000000000 0
-94C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\dist\index.html132509763648985024 0
+94C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\dist\index.html132510841198421352 0
 149C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\@parcel\workers\test\integration\workerfarm\master-sum.js121436361000000000 0
 113C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\resolve\lib\caller.js121436361000000000 0
 127C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\rxjs\operator\ignoreElements.js.map121436361000000000 0
@@ -16039,7 +16039,7 @@
 133C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\node-addon-api\benchmark\function_args.js121436361000000000 0
 130C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\es-abstract\2019\IsConcatSpreadable.js121436361000000000 0
 163C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\postcss-discard-comments\node_modules\postcss\docs\guidelines\runner.md121436361000000000 0
-101C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\dist\index.899adfd8.js132509763649095561 0
+101C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\dist\index.899adfd8.js132510841198611699 0
 130C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\postcss-discard-comments\dist\index.js121436361000000000 0
 142C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\postcss-discard-comments\dist\lib\commentParser.js121436361000000000 0
 155C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\@parcel\node-resolver-core\node_modules\to-regex-range\index.js131373859950000000 0
@@ -16969,7 +16969,7 @@
 162C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\object-is\node_modules\es-abstract\2018\CanonicalNumericIndexString.js121436361000000000 0
 161C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\object-is\node_modules\es-abstract\2018\CompletePropertyDescriptor.js121436361000000000 0
 153C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\object-is\node_modules\es-abstract\2018\CopyDataProperties.js121436361000000000 0
-101C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\dist\logo.6e93ef98.png132509763648994997 0
+101C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\dist\logo.6e93ef98.png132510841198441350 0
 109C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\ansi-colors\types132492718535512838 1
 160C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\object-is\node_modules\es-abstract\2018\CreateDataPropertyOrThrow.js121436361000000000 0
 145C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\object-is\node_modules\es-abstract\2018\CreateHTML.js121436361000000000 0
@@ -18897,7 +18897,7 @@
 126C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\js-yaml\lib\js-yaml\type\binary.js121436361000000000 0
 124C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\js-yaml\lib\js-yaml\type\bool.js121436361000000000 0
 119C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\js-yaml\lib\js-yaml\type\js132492718402493169 1
-106C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\dist\index.776d71e5.css.map132509763649084937 0
+106C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\dist\index.776d71e5.css.map132510841198611699 0
 124C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\js-yaml\lib\js-yaml\type\null.js121436361000000000 0
 124C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\js-yaml\lib\js-yaml\type\omap.js121436361000000000 0
 131C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\js-yaml\lib\js-yaml\type\js\function.js121436361000000000 0
@@ -25336,8 +25336,8 @@
 102C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\.bin\uncss132492719008322995 0
 105C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\.bin\uuid.cmd132492719007742723 0
 105C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\node_modules\.bin\uuid.ps1132492719007742723 0
-104C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\dist\favicon.02d07815.png132509763648985024 0
-102C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\dist\icons.c0dd79b3.svg132509763648994997 0
-102C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\dist\icons.c8e35105.svg132509763649054960 0
-105C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\dist\index.899adfd8.js.map132509763649095561 0
+104C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\dist\favicon.02d07815.png132510841198431376 0
+102C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\dist\icons.c0dd79b3.svg132510841198431376 0
+102C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\dist\icons.c8e35105.svg132510841198511308 0
+105C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\dist\index.899adfd8.js.map132510841199079663 0
 100C:\Users\Daniel\Downloads\complete-javascript-course-master\18-forkify\starter\.vscode\settings.json132493483378784116 0
