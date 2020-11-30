@@ -10,3 +10,5 @@ I've used in this application:
 I should say that developing this complex app at the current moment was a lot of fun, and I'm looking foward to make some new cool stuff like that or even better soon! :smile:
 ---
 And of course you are supposed to check it out at [this link](https://forkify-dann.netlify.app/) :wink:
+
+NOTE: type recipes in english!
