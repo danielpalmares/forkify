@@ -18,8 +18,5 @@
   "devDependencies": {
     "parcel": "^1.12.4",
     "sass": "^1.29.0"
-  },
-  "browserslist": [
-    "last 1 Chrome version"
-  ]
+  }
 }
