@@ -5,17 +5,18 @@
   "default": "index.js",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html --dist-dir ./dist"
+    "build": "parcel build index.html --out-dir ./dist"
   },
   "author": "Daniel Palmares",
   "license": "ISC",
   "dependencies": {
     "core-js": "^3.7.0",
     "fractional": "^1.0.0",
+    "highlight.js": ">=9.18.2",
     "regenerator-runtime": "^0.13.7"
   },
   "devDependencies": {
-    "parcel": "^2.0.0-nightly.440",
+    "parcel": "^1.12.4",
     "sass": "^1.29.0"
   }
 }
