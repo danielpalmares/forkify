@@ -64,9 +64,7 @@ $ npm install
 # Run the application in development mode
 $ npm run start
 
-# Open the index file with Live Server
-
-# Running on port:3000
+# Open the index file with Live Server!
 ```
 
 If you don't have the Live Server extension installed, this link is for you [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
