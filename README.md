@@ -71,7 +71,7 @@ If you don't have the Live Server extension installed, this link is for you [Liv
 
 ## Technologies
 
-These tools were used in the project:
+These technologies were used in the project:
 
 - [HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
 - [SASS](https://sass-lang.com/)
