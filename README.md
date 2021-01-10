@@ -74,7 +74,7 @@ If you don't have the Live Server extension installed, this link is for you [Liv
 These tools were used in the project:
 
 - [HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
-- [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
+- [SASS](https://sass-lang.com/)
 - [JavaScript](https://jquery.com/)
 - [Parcel](https://parceljs.org/)
 
