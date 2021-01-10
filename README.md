@@ -75,9 +75,9 @@ These tools were used in the project:
 
 - [HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
 - [SASS](https://sass-lang.com/)
-- [JavaScript](https://jquery.com/)
+- [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 - [Parcel](https://parceljs.org/)
 
 ## License
 
-This project is under the MIT license. See the archive [LICENSE](https://github.com/danielpalmares/omnifood/blob/master/LICENSE) for more details.
+This project is under the MIT license. See the archive [LICENSE](https://github.com/danielpalmares/forkify/blob/main/LICENSE) for more details.
