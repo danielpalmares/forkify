@@ -27,12 +27,9 @@
 
 ## Screenshots
 
-![Forkify](https://github.com/danielpalmares/forkify/blob/main/.github/forkify-1.png)
 ![Forkify](https://github.com/danielpalmares/forkify/blob/main/.github/forkify-2.png)
-![Forkify](https://github.com/danielpalmares/forkify/blob/main/.github/forkify-3.png)
-![Forkify](https://github.com/danielpalmares/forkify/blob/main/.github/forkify-4.png)
-![Forkify](https://github.com/danielpalmares/forkify/blob/main/.github/forkify-5.png)
-![Forkify](https://github.com/danielpalmares/forkify/blob/main/.github/forkify-6.png)
+
+You can see more screenshots over here 👉 [Drive](https://drive.google.com/drive/folders/1hPPed6ZNAICQgnJWgvXs_nfIZINVBjDv?usp=sharing)
 
 ---
 
