@@ -29,8 +29,6 @@
 
 ![Forkify](https://github.com/danielpalmares/forkify/blob/main/.github/forkify-2.png)
 
-You can see more screenshots over here 👉 [Drive](https://drive.google.com/drive/folders/1hPPed6ZNAICQgnJWgvXs_nfIZINVBjDv?usp=sharing)
-
 ---
 
 ## Status
@@ -39,7 +37,7 @@ Project completely done! ☄️
 
 ## Pre-requirements
 
-Before getting started, you will need to have installed in your machine these tools: 
+Before getting started, you will need to have installed in your machine these tools:
 
 - [Git](https://git-scm.com)
 - [Node.js](https://nodejs.org/en/)
